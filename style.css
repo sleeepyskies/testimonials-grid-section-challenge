@@ -1,0 +1,222 @@
+/* Custom properties */
+
+:root {
+        /* Goole fonts */
+        --ff: 'Barlow Semi Condensed', sans-serif;
+        /* Primary colors */
+        --moderateViolet: hsl(263, 55%, 52%);
+        --darkGrayBlue: hsl(217, 19%, 35%);
+        --veryDarkBlue: hsl(219, 29%, 14%);
+        --white: hsl(0, 0%, 100%);
+        /* 70% opacity */
+        --white70: hsla(0, 0%, 100%, 70%);
+        --darkGrayBlue70: hsla(217, 19%, 35%, 70%);
+        /* 50% opacity */
+        --white50: hsla(0, 0%, 100%, 50%);
+        --darkGrayBlue50: hsla(217, 19%, 35%, 50%);
+        /* Neutral colors */
+        --lightGray: hsl(0, 0%, 81%);
+        --lightGrayBlue: hsl(210, 46%, 95%);
+}
+
+/* General */
+
+* {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box ;
+}
+
+body {
+        height: 100vh;
+        background-color: var(--lightGrayBlue);
+        display: flex;
+        align-items: center;
+        font-family: var(--ff);
+}
+
+/* Setting up grid */
+
+.container {
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        grid-template-rows: 1fr 1fr;
+        margin: 11.9rem 10.3rem 11.9rem 10.3rem;
+        column-gap: 1.95rem;
+        row-gap: 1.6rem;
+}
+
+/* General card styling */
+
+.card {
+        border-radius: 0.5rem;
+        overflow: hidden;
+        padding: 1.5rem 2rem;
+        -webkit-box-shadow: 10px 10px 16px 4px rgba(0,0,0,0.05); 
+        box-shadow: 10px 10px 16px 4px rgba(0,0,0,0.05);
+}
+
+/* Placing grid elements and styling */
+
+.card:first-child {
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+        
+        background-color: var(--moderateViolet);
+
+        /* Adding quotation .svg */
+        background-image: url(images/bg-pattern-quotation.svg);
+        background-repeat: no-repeat;
+        background-position: 82.5% 0;
+}
+
+.card:nth-child(2) {
+        grid-column: 3 / 4;
+        grid-row: 1 / 2;
+
+        background-color: var(--darkGrayBlue);
+}
+
+.card:nth-child(3) {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3; 
+
+        background-color: var(--white);
+}
+
+.card:nth-child(4) {
+        grid-column: 2 / 4;
+        grid-row: 2 / 3;
+
+        background-color: var(--veryDarkBlue);
+}
+
+.card:last-child {
+        grid-column: 4 / 5;
+        grid-row: 1 / 3;
+
+        background-color: var(--white);
+}
+
+/* Styling person-component */
+
+.person {
+        display: flex;
+        margin-bottom: 1.2rem;
+}
+
+.person img {
+        max-height: 1.8rem;
+        border-radius: 1rem;
+}
+
+.person p {
+        margin-left: 1.1rem;
+        font-size: 0.825em;
+}
+
+.person p span {
+        display: block;
+        font-weight: 500;
+        font-size: 0.81em;
+}
+
+/* Person specific styling */
+
+.card:first-child .person, 
+.card:first-child h2, 
+.card:nth-child(2) .person, 
+.card:nth-child(2) h2,
+.card:nth-child(4) .person, 
+.card:nth-child(4) h2 {
+        color: var(--white);
+}
+
+.card:nth-child(3) .person, 
+.card:nth-child(3) h2,
+.card:last-child .person, 
+.card:last-child h2 {
+        color: var(--darkGrayBlue);
+}
+
+.card:first-child .name span,
+.card:nth-child(2) .name span,
+.card:nth-child(4) .name span {
+        color: var(--white50);
+}
+
+.card:nth-child(3) .name span,
+.card:last-child .name span {
+        color: var(--darkGrayBlue50);
+}
+
+/* Styling statement */
+
+h2 {
+        font-size: 1.2em;
+        margin-bottom: 1rem;
+}
+
+/* Styling quote */
+
+.quote {
+        font-size: 0.8rem;
+        line-height: 1.5em;
+        font-weight: 500;
+}
+
+.card:first-child .quote,
+.card:nth-child(2) .quote,
+.card:nth-child(4) .quote {
+        color: var(--white70);
+}
+
+.card:nth-child(3) .quote,
+.card:last-child .quote{
+        color: var(--darkGrayBlue70);
+}
+
+/* Styling smaller screen sizes */
+
+@media only screen and (max-width: 1250px) {
+
+        .container {
+                grid-template-columns: repeat(3,1fr);
+                grid-template-rows: repeat(3,1fr);
+                padding: 1rem 0;
+                margin: auto 5.3rem;
+        }
+
+        .card:last-child {
+                grid-row: 3 / 4;
+                grid-column: 1 / 3;
+        }
+}
+
+@media only screen and (max-width:800px) {
+        .container {
+                display: flex;
+                flex-direction: column;
+        }
+
+}
+/* 
+.card:first-child {
+
+}
+
+.card:nth-child(2) {
+
+}
+
+.card:nth-child(3) {
+
+}
+
+.card:nth-child(4) {
+
+}
+
+.card:last-child {
+
+} */
